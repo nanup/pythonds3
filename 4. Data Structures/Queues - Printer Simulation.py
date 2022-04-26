@@ -23,7 +23,7 @@ class Printer:
 class Task:
     def __init__(self, time):
         self.timestamp = time
-        self.pages = randrange(1, 21)
+        self.pages = randrange(1, average_prints())
 
     def get_stamp(self):
         return self.timestamp
@@ -58,7 +58,11 @@ def set_new_task():
     num = randrange(1, 181)
     return num == 180
 
+def average_prints():
+    return num_students * average_tasks
 
+num_students = 5
+average_tasks = 5
 for i in range(10):
     simulation(3600, 5)
 
