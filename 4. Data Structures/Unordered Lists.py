@@ -49,13 +49,11 @@ class UnorderedList:
             if current.data == item:
                 return True
             current = current.next
-
         return False
 
     def remove(self, item):
         current = self.head
         previous = None
-
         while current is not None:
             if current.data == item:
                 previous.next = current.next
