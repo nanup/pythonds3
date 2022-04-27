@@ -22,23 +22,6 @@ def tree(branch_len, t):
         t.right(angle)
         t.backward(branch_len)
 
-        t.width(branch_len // 4)
-        if branch_len < 30:
-            t.color("green")
-        else:
-            t.color("brown")
-        t.forward(branch_len)
-        t.right(angle - 15)
-        tree(branch_len - num, t)
-        t.left(2 * angle - 30)
-        tree(branch_len - num, t)
-        if branch_len < 30:
-            t.color("green")
-        else:
-            t.color("brown")
-        t.right(angle - 15)
-        t.backward(branch_len)
-
 
 def main():
     t = turtle.Turtle()
