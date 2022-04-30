@@ -9,4 +9,4 @@ def bubble_sort(self, a_list):
                 exchanges = False
         
         if not exchanges:
-            return a_list
+            break
