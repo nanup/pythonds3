@@ -31,6 +31,23 @@ def insert_sort(a_list):
             cur_pos -= 1
         a_list[cur_pos] = cur_val
 
+def shell_sort(a_list):
+    sublist_count = len(a_list) // 2
+    while sublist_count > 0:
+        for i in range(sublist_count):
+            insertion_gap_sort(a_list, i, sublist_count)
+        print("After increments of size", sublist_count, "the list is", a_list)
+        sublist_count = sublist_count // 2
+
+def insertion_gap_sort(a_list, start, gap):
+    for j in range(start + gap, len(a_list), gap):
+        cur_pos = j
+        cur_val = a_list[j]
+        while cur_pos >= gap and a_list[cur_pos - gap] > cur_val:
+            a_list[cur_pos] = a_list[cur_pos - gap]
+            cur_pos -= gap
+        a_list[cur_pos] = cur_val
+
 a_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-insert_sort(a_list)
+shell_sort(a_list)
 print(a_list)
