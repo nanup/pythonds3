@@ -35,7 +35,7 @@ def knightTour(current_depth, vertex_list, current_vertex, node_limit):
     current_vertex.set_color('gray')
     vertex_list.append(current_vertex)
     if current_depth < node_limit:
-        nbrList = list(current_vertex.getConnections())
+        nbrList = list(current_vertex.orderByAvail(current_vertex))
         i = 0
         done = False
         while i < len(nbrList) and not done:
@@ -50,3 +50,15 @@ def knightTour(current_depth, vertex_list, current_vertex, node_limit):
         done = True
 
     return done
+
+def orderByAvail(current_vertex):
+    resList = []
+    for vertex in current_vertex.getConnections():
+        if vertex.getColor() == "white":
+            c = 0
+            for connection in vertex.getConnections():
+                if connection.getColor() == 'white':
+                    c += 1
+            resList.append((c, connection))
+    resList.sort(key=lambda x: x[0])
+    return [y[1] for y in resList]
