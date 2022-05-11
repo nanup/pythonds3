@@ -1,7 +1,8 @@
 import sys
 from pythonds3 import PriorityQueue, Graph, Vertex
 
-def prim(aGraph):
+def prim(aGraph, start):
+    start.setDistance(0)
     for v in aGraph:
         v.setDistace(sys.maxsize)
         v.setPred(None)
