@@ -12,7 +12,7 @@ def prim(aGraph, start):
         currentV = v.delMin()
         for nextV in currentV.getConnections():
             newCost = currentV.getWeight(nextV)
-            if nextV not in pq and newCost < nextV.getDistance():
+            if nextV in pq and newCost < nextV.getDistance():
                 nextV.setPred(currentV)
                 nextV.setDistance(newCost)
                 pq.decreaseKey(nextV, newCost)
